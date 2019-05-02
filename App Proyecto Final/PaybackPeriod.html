@@ -7,7 +7,7 @@
     <title>Payback Period</title>
 
   </head>
-  <body>
+  <body onLoad="HideCalculateButton()">
 
       <div class="center">
 
@@ -21,10 +21,14 @@
         <input type="number" name="" value="" id="tax_rate">
         <br><br>
         <div id="PaybackTable" class="tb"></div>
+        <br>
+        <div class="">
+          <p id = "payback_period_value"></p>
+        </div>
         <br><br>
         <div class="">
-          <a type="button" name="Enter" onclick="addTable()" class="btn btn-primary btn-learn">Enter Periods</a>
-          <a type="button" name="PB" onclick="calculatePaybackPeriod()" class="btn btn-primary btn-learn">Calculate</a>
+          <a type="button" name="Enter" onclick="addTable()" class="btn btn-primary btn-learn" id="btn_periods">Enter Periods</a>
+          <a type="button" name="PB" onclick="calculatePaybackPeriod()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate</a>
         </div>
 
       </div>

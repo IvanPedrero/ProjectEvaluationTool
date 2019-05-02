@@ -71,6 +71,9 @@ function addTable() {
     }
   }
   myTableDiv.appendChild(table);
+
+  //Show calculate button!
+  ShowCalculateButton();
 }
 
 //Define the payback period functions.
@@ -83,13 +86,16 @@ function addTable() {
 function calculatePaybackPeriod(){
 
   var sTableName = document.getElementById("payback_table");
-
+  
   var principal = document.getElementById("principal").value;
 
   //Get the tax from the page.
   var tax = parseFloat(document.getElementById("tax_rate").value);
 
-  console.log(" after p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
+  //Get the salvage value.
+  var salvage_value = parseFloat(document.getElementById("salvage_value").value);
+
+  //console.log(" after p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
   //Validate tax is between 0 - 100.
   if(!tax){
     tax = 0;
@@ -119,7 +125,13 @@ function calculatePaybackPeriod(){
     principal = principal*-1;
   }
 
-  console.log(" before p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
+  //console.log(" before p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
+
+  if(!salvage_value){
+    salvage_value = 0;
+    alert("WARNING: There is no salvage value.");
+    document.getElementById("salvage_value").value = "0";
+  }
 
   //Define the present value factor.
   var presentValueFactor;
@@ -146,6 +158,10 @@ function calculatePaybackPeriod(){
       //Inflows
       if(j == 0){
         paybackPeriodInflows[i - 1] = tableColumn.value;
+
+        if(i == sTableName.children[0].childElementCount-1){
+          paybackPeriodInflows[i - 1] = +paybackPeriodInflows[i - 1] + +salvage_value;
+        }
       }
       //Outflows
       if(j == 1){
@@ -161,6 +177,15 @@ function calculatePaybackPeriod(){
         //Create the cumulative cash flow.
         principal += paybackPeriodNetCash[i - 1];
         document.getElementById("pb_cell_"+i+"_3").value = principal;
+
+        //Calculate the salvage value!
+        if(i == sTableName.children[0].childElementCount-1){
+          var prev_value = document.getElementById("pb_cell_"+i+"_0").value;
+
+          prev_value = +prev_value + +salvage_value;
+
+          document.getElementById("pb_cell_"+i+"_0").value = prev_value;
+        }
 
       }
     }
@@ -183,4 +208,12 @@ function calculatePaybackPeriod(){
   //Set the final value of fthe npv.
   document.getElementById("finalNpvValue").innerHTML = "Net Present Value is = " +principal;"It is an "+investmentDecision
   document.getElementById("investmentValue").innerHTML = "It is an "+investmentDecision;
+}
+
+function HideCalculateButton(){
+  document.getElementById("btn_calculate").style.display = 'none';
+}
+
+function ShowCalculateButton(){
+  document.getElementById("btn_calculate").style.display = 'inline-block';
 }

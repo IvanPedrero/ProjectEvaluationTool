@@ -9,6 +9,9 @@ function addTable() {
   var table = document.createElement('TABLE');
   table.setAttribute("id", "payback_table");
 
+  //Reset final answer.
+  document.getElementById("payback_period_value").innerHTML = "";
+
   var n = document.getElementById("total_periods").value;
   if(n > 10){
     n = 10
@@ -66,6 +69,9 @@ function addTable() {
     }
   }
   myTableDiv.appendChild(table);
+
+  //Show calculate button!
+  ShowCalculateButton();
 }
 
 //Define the payback period functions.
@@ -121,6 +127,9 @@ function calculatePaybackPeriod(){
   //Define the present value factor.
   var presentValueFactor;
 
+  var pb = 0;
+  var alreadyCountedpb = false;
+
   for(var i = 1; i < sTableName.children[0].childElementCount ; i++)
   {
     //Calculate the present value factor.
@@ -163,11 +172,28 @@ function calculatePaybackPeriod(){
         if(principal < 0){
           document.getElementById("pb_cell_"+i+"_3").style.color = "red";
         }else{
+
           document.getElementById("pb_cell_"+i+"_3").style.color = "green";
+
+          if(alreadyCountedpb == false){
+            alreadyCountedpb = true;
+            pb = i;
+          }
+
         }
 
       }
     }
   }
+  document.getElementById("payback_period_value").innerHTML = "Payback period : "+ pb;
 
+}
+
+
+function HideCalculateButton(){
+  document.getElementById("btn_calculate").style.display = 'none';
+}
+
+function ShowCalculateButton(){
+  document.getElementById("btn_calculate").style.display = 'inline-block';
 }
