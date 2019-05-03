@@ -86,16 +86,35 @@ function addTable() {
 function calculatePaybackPeriod(){
 
   var sTableName = document.getElementById("payback_table");
-  
+
   var principal = document.getElementById("principal").value;
 
-  //Get the tax from the page.
+  //Get the interest from the page.
+  var interest = parseFloat(document.getElementById("interest_rate").value);
+
+  //Get the interest from the page.
   var tax = parseFloat(document.getElementById("tax_rate").value);
 
   //Get the salvage value.
   var salvage_value = parseFloat(document.getElementById("salvage_value").value);
 
-  //console.log(" after p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
+  //console.log(" after p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
+  //Validate interest is between 0 - 100.
+  if(!interest){
+    interest = 0;
+    alert("WARNING: There is no interest rate.");
+    document.getElementById("interest_rate").value = "0";
+  }else if(interest < 0){
+    interest = 0;
+    alert("interest percentage must be positive!");
+    document.getElementById("interest_rate").value = "0";
+  }
+  if(interest > 100){
+    interest = 100;
+    alert("interest percentage must not surpass 100%!");
+    document.getElementById("interest_rate").value = "100";
+  }
+
   //Validate tax is between 0 - 100.
   if(!tax){
     tax = 0;
@@ -108,9 +127,13 @@ function calculatePaybackPeriod(){
   }
   if(tax > 100){
     tax = 100;
-    alert("Tax percentage must not surpass 100%!");
+    alert("tax percentage must not surpass 100%!");
     document.getElementById("tax_rate").value = "100";
   }
+
+  //Calculate the interest percentage for cleaner code.
+  var interestPercentage;
+  interestPercentage = interest / 100;
 
   //Calculate the tax percentage for cleaner code.
   var taxPercentage;
@@ -125,7 +148,7 @@ function calculatePaybackPeriod(){
     principal = principal*-1;
   }
 
-  //console.log(" before p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
+  //console.log(" before p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
 
   if(!salvage_value){
     salvage_value = 0;
@@ -139,7 +162,10 @@ function calculatePaybackPeriod(){
   for(var i = 1; i < sTableName.children[0].childElementCount ; i++)
   {
     //Calculate the present value factor.
-    presentValueFactor = 1/(Math.pow(1 + taxPercentage, i));
+    presentValueFactor = 1/(Math.pow(1 + interestPercentage, i));
+
+    //Consider taxes.
+    presentValueFactor = presentValueFactor * (1 - taxPercentage);
 
     var tableRow = sTableName.children[0].children[i];
 
