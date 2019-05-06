@@ -1,0 +1,33 @@
+body
+{ 
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100%
+}
+
+.center{
+    margin-left: 10%;
+    margin-top: 4%;
+  }
+  .tb{
+    width: 100%;
+  }
+  .bt{
+    width: 10%;
+    height: 30px;
+
+  }
+  td
+  {
+      padding:0 5px 0 0; /* Only right padding*/
+  }
+      
+#btn_periods
+{
+    margin-top: -10%;
+}
+
+#btn_calculate
+{
+    margin-top: -10%;
+}
