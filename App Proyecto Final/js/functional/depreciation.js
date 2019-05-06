@@ -89,7 +89,7 @@ function addTable() {
  depreciationRate = new Array(10);
  annualDep = new Array(10);
  accDep = new Array(10);
- valueLed= new Array(10);
+ ledVal= new Array(10);
  taxYear = new Array(10);
 
 //This function will calculate the payback period.
@@ -176,6 +176,7 @@ function calculatePaybackPeriod(){
 
   //Define the present value factor.
   var presentValueFactor;
+  var acum=0;
 
   for(var i = 1; i < sTableName.children[0].childElementCount ; i++)
   {
@@ -261,34 +262,52 @@ function calculatePaybackPeriod(){
 
 
       }
-      
+
       if(j == 2){
 		annualDep[i-1] = tableColumn.value;
 
         document.getElementById("pb_cell_"+i+"_"+j).value = ((depreciationRate[i-i-1]/100)*principal)*-1;
+
+
       }
 
+
+		
 	  if(j == 3){
 
-	   		document.getElementById("pb_cell_"+1+"_"+3).value=annualDep[0];
+			accDep[i-1]= tableColumn.value;
+
+			acum +=+annualDep[i-1];
+
+			document.getElementById("pb_cell_"+i+"_"+j).value = acum;
+
+			/*
+			document.getElementById("pb_cell_"+1+"_"+3).value=annualDep[0];
 			document.getElementById("pb_cell_"+2+"_"+3).value=((-annualDep[0])-(annualDep[1]))*-1;
 			document.getElementById("pb_cell_"+3+"_"+3).value=((-annualDep[2])-(annualDep[1])-(annualDep[0]))*-1;
 			document.getElementById("pb_cell_"+4+"_"+3).value=((-annualDep[3])-(annualDep[2])-(annualDep[1])-(annualDep[0]))*-1;
 			document.getElementById("pb_cell_"+5+"_"+3).value=(-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
-			document.getElementById("pb_cell_"+6+"_"+3).value=(-annualDep[4]-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
-			document.getElementById("pb_cell_"+7+"_"+3).value=(-annualDep[6]-annualDep[5]-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
-			document.getElementById("pb_cell_"+8+"_"+3).value=(-annualDep[7]-annualDep[6]-annualDep[5]-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
-			document.getElementById("pb_cell_"+9+"_"+3).value=(-annualDep[8]-annualDep[7]-annualDep[6]-annualDep[5]-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
-			document.getElementById("pb_cell_"+10+"_"+3).value=(-annualDep[9]-annualDep[8]-annualDep[7]-annualDep[6]-annualDep[5]-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
+			document.getElementById("pb_cell_"+6+"_"+3).value=(-annualDep[5]-annualDep[4]-annualDep[3]-annualDep[2]-annualDep[1]-annualDep[0])*-1;
+			
+
+			//accDep[i-1] = annualDep[i-1]+accDep[i-1];
+			cont=accDep[i-2];*/
+			
 
         //document.getElementById("pb_cell_"+i+"_"+j).value = accDep[i-1];
 
       }
 
-	  if(j == 4){
+	  if(j == 4)
+	  {
 
-        document.getElementById("pb_cell_"+i+"_"+j).value = accDep[i-1];
+		ledVal[i-1] = tableColumn.value;
+        document.getElementById("pb_cell_"+i+"_"+j).value = -principal -accDep[i-1];
+      }
 
+	  	  if(j == 5)
+	  {
+        document.getElementById("pb_cell_"+i+"_"+j).value =  (tax/100)*ledVal[i-1];
       }
     }
   }
