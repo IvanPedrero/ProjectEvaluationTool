@@ -107,31 +107,18 @@ function calculatePaybackPeriod(){
   //alert("WARNING: "+principal);
 
   //Get the interest from the page.
-  var interest = parseFloat(document.getElementById("interest_rate").value);
-
-  //Get the interest from the page.
   var tax = parseFloat(document.getElementById("tax_rate").value);
 
   //Get the salvage value.
   var salvage_value = parseFloat(document.getElementById("salvage_value").value);
 
+  //Get Depreciation category 
+
+  var depCat = parseFloat(document.getElementById("Category").value);
+
+ 
   
-  //console.log(" after p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
-  //Validate interest is between 0 - 100.
-  if(!interest){
-    interest = 0;
-    alert("WARNING: There is no interest rate.");
-    document.getElementById("interest_rate").value = "0";
-  }else if(interest < 0){
-    interest = 0;
-    alert("interest percentage must be positive!");
-    document.getElementById("interest_rate").value = "0";
-  }
-  if(interest > 100){
-    interest = 100;
-    alert("interest percentage must not surpass 100%!");
-    document.getElementById("interest_rate").value = "100";
-  }
+
 
   //Validate tax is between 0 - 100.
   if(!tax){
@@ -149,9 +136,6 @@ function calculatePaybackPeriod(){
     document.getElementById("tax_rate").value = "100";
   }
 
-  //Calculate the interest percentage for cleaner code.
-  var interestPercentage;
-  interestPercentage = interest / 100;
 
   //Calculate the tax percentage for cleaner code.
   var taxPercentage;
@@ -180,13 +164,8 @@ function calculatePaybackPeriod(){
 
   for(var i = 1; i < sTableName.children[0].childElementCount ; i++)
   {
-    //Calculate the present value factor.
-    presentValueFactor = 1/(Math.pow(1 + interestPercentage, i));
-
-    //Consider taxes.
-    presentValueFactor = presentValueFactor * (1 - taxPercentage);
-
     var tableRow = sTableName.children[0].children[i];
+	
 
     for(var j = 0; j < tableRow.childElementCount ; j++)
     {
@@ -202,20 +181,17 @@ function calculatePaybackPeriod(){
       //Inflows
       if(j == 0){
 
-		depreciationYears[i-1] = tableColumn.value;
-
-
-
         document.getElementById("pb_cell_"+i+"_"+j).value=year*1+i-1;
 		
 
-		//console.log('Cell ['+i+','+j+'] value: '+ depreciationYears.value);
       }
-      //Outflows
+      
       if(j == 1){
 
 	  depreciationRate[i-i-1] = tableColumn.value;
-		if(periodo<=4)
+
+
+		if(depCat=3)
 		{
 			document.getElementById("pb_cell_"+1+"_"+1).value=33.33;
 			document.getElementById("pb_cell_"+2+"_"+1).value=44.45;
@@ -223,7 +199,7 @@ function calculatePaybackPeriod(){
 			document.getElementById("pb_cell_"+4+"_"+1).value=7.41;
 		}
 
-		else if (periodo=>5 && periodo<=6)
+		 if (depCat=5)
 		{
 			document.getElementById("pb_cell_"+1+"_"+1).value=20;
 			document.getElementById("pb_cell_"+2+"_"+1).value=32;
@@ -233,7 +209,7 @@ function calculatePaybackPeriod(){
 			document.getElementById("pb_cell_"+6+"_"+1).value=5.76;
 		}
 
-		 if (periodo>=7 && periodo<=8)
+		 if (depCat=7)
 		{
 			document.getElementById("pb_cell_"+1+"_"+1).value=14.29;
 			document.getElementById("pb_cell_"+2+"_"+1).value=24.49;
@@ -245,7 +221,7 @@ function calculatePaybackPeriod(){
 			document.getElementById("pb_cell_"+8+"_"+1).value=4.46;
 		}
 
-		 if (periodo>8 && periodo<11)
+		 if (depCat=10)
 		{
 			document.getElementById("pb_cell_"+1+"_"+1).value=10;
 			document.getElementById("pb_cell_"+2+"_"+1).value=18;
@@ -256,9 +232,42 @@ function calculatePaybackPeriod(){
 			document.getElementById("pb_cell_"+7+"_"+1).value=6.55;
 			document.getElementById("pb_cell_"+8+"_"+1).value=6.55;
 			document.getElementById("pb_cell_"+9+"_"+1).value=6.56;
-			document.getElementById("pb_cell_"+10+"_"+1).value=6.;
+			document.getElementById("pb_cell_"+10+"_"+1).value=6.55;
 
 		}
+
+		 if (depCat=15)
+		{
+			document.getElementById("pb_cell_"+1+"_"+1).value=5;
+			document.getElementById("pb_cell_"+2+"_"+1).value=9.50;
+			document.getElementById("pb_cell_"+3+"_"+1).value=8.55;
+			document.getElementById("pb_cell_"+4+"_"+1).value=7.70;
+			document.getElementById("pb_cell_"+5+"_"+1).value=6.93;
+			document.getElementById("pb_cell_"+6+"_"+1).value=6.23;
+			document.getElementById("pb_cell_"+7+"_"+1).value=5.90;
+			document.getElementById("pb_cell_"+8+"_"+1).value=5.90;
+			document.getElementById("pb_cell_"+9+"_"+1).value=5.91;
+			document.getElementById("pb_cell_"+10+"_"+1).value=5.90;
+
+		}
+
+		 if (depCat=20)
+		{
+			document.getElementById("pb_cell_"+1+"_"+1).value=3.750;
+			document.getElementById("pb_cell_"+2+"_"+1).value=7.219;
+			document.getElementById("pb_cell_"+3+"_"+1).value=6.677;
+			document.getElementById("pb_cell_"+4+"_"+1).value=6.177;
+			document.getElementById("pb_cell_"+5+"_"+1).value=5.713;
+			document.getElementById("pb_cell_"+6+"_"+1).value=5.285;
+			document.getElementById("pb_cell_"+7+"_"+1).value=4.888;
+			document.getElementById("pb_cell_"+8+"_"+1).value=4.522;
+			document.getElementById("pb_cell_"+9+"_"+1).value=4.462;
+			document.getElementById("pb_cell_"+10+"_"+1).value=4.461;
+
+
+		}
+
+		
 
 
       }
@@ -311,31 +320,137 @@ function calculatePaybackPeriod(){
       }
     }
   }
-  console.log("Final npv value : "+ principal);
+}
 
-  var investmentDecision = "";
+function calculateStraigthLine()
+  {
 
-  if(principal < 0){
-    investmentDecision = "unacceptable investment!"
-    document.getElementById("investmentValue").style.color = "red";
-  }else if(principal > 0){
-    investmentDecision = "acceptable investment!"
-    document.getElementById("investmentValue").style.color = "green";
-  }else{
-    investmentDecision = "acceptable investment IF more capital is invested.";
-    document.getElementById("investmentValue").style.color = "black";
+  var periodo = document.getElementById("total_periods").value;
+
+  var sTableName = document.getElementById("payback_table");
+
+  //Get starting year 
+  var year = document.getElementById("anio").value;
+  //alert("WARNING: "+year);
+
+  var principal = document.getElementById("principal").value;
+  //alert("WARNING: "+principal);
+
+  //Get the tax from the page.
+  var tax = parseFloat(document.getElementById("tax_rate").value);
+
+  //Get the salvage value.
+  var salvage_value = parseFloat(document.getElementById("salvage_value").value);
+
+
+  //Validate tax is between 0 - 100.
+  if(!tax){
+    tax = 0;
+    alert("WARNING: There is no tax rate.");
+    document.getElementById("tax_rate").value = "0";
+	
+  }else if(tax < 0){
+    tax = 0;
+    alert("Tax percentage must be positive!");
+    document.getElementById("tax_rate").value = "0";
+  }
+  if(tax > 100){
+    tax = 100;
+    alert("tax percentage must not surpass 100%!");
+    document.getElementById("tax_rate").value = "100";
   }
 
-  //Set the final value of fthe npv.
-  document.getElementById("finalNpvValue").innerHTML = "Net Present Value is = " +principal;"It is an "+investmentDecision
-  document.getElementById("investmentValue").innerHTML = "It is an "+investmentDecision;
-}
+  //Calculate the tax percentage for cleaner code.
+  var taxPercentage;
+  taxPercentage = tax / 100;
+
+  //Calculate depreciation
+  var depSL;
+  var salVal;
+  salVal = (salvage_value/100) * principal;
+
+  depSL = (principal-salVal)/periodo;
+
+
+
+  //Validate the principal is negative.
+  if(!principal){
+    document.getElementById("principal").value = 0;
+    alert("WARNING: There is no principal.");
+  }
+  if(principal > 0){
+    principal = principal*-1;
+  }
+
+  //console.log(" before p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
+
+  if(!salvage_value){
+    salvage_value = 0;
+    alert("WARNING: There is no salvage value.");
+    document.getElementById("salvage_value").value = "0";
+  }
+
+  //Define the present value factor.
+  var presentValueFactor;
+  var acum=0;
+
+  for(var i = 1; i < sTableName.children[0].childElementCount ; i++)
+  {
+
+    var tableRow = sTableName.children[0].children[i];
+	
+
+    for(var j = 0; j < tableRow.childElementCount ; j++)
+    {
+      var tableColumn = document.getElementById("pb_cell_"+i+"_"+j);
+
+      //Check for nulls.
+      if(tableColumn.value == 0){
+        //Fix them visually.
+        tableColumn.value = 0;
+        document.getElementById("pb_cell_"+i+"_"+j).value = 0;
+      }
+
+      if(j == 0){
+
+        document.getElementById("pb_cell_"+i+"_"+j).value=year*1+i-1;
+      }  
+
+	  if(j == 2){
+
+		annualDep[i-1]=tableColumn.value;
+        document.getElementById("pb_cell_"+i+"_"+j).value=depSL;
+      }  
+
+	  if(j == 3){ 
+	  	accDep[i-1]= tableColumn.value;
+
+			acum +=+annualDep[i-1];
+
+			document.getElementById("pb_cell_"+i+"_"+j).value = acum;
+		}
+
+	   if(j == 4){ 
+	  		ledVal[i-1] = tableColumn.value;
+			document.getElementById("pb_cell_"+i+"_"+j).value = -principal -accDep[i-1];
+		}
+
+	   if(j == 5)
+	  {
+        document.getElementById("pb_cell_"+i+"_"+j).value =  (tax/100)*ledVal[i-1];
+      }
+	}
+  }
+ }
 
 function HideCalculateButton(){
   document.getElementById("btn_calculate").style.display = 'none';
+  document.getElementById("btn_calculateSL").style.display = 'none';
+
 }
 
 function ShowCalculateButton(){
   document.getElementById("btn_calculate").style.display = 'inline-block';
+   document.getElementById("btn_calculateSL").style.display = 'inline-block';
 }
 

@@ -21,9 +21,7 @@
         <p>Principal:</p>
         <input type="number" name="" value="" id="principal">
         <br>
-        <p>Interest Rate (%) :</p>
-        <input type="number" name="" value="" id="interest_rate">
-        <br>
+        
         <p>Tax Rate (%) :</p>
         <input type="number" name="" value="" id="tax_rate">
         <br>
@@ -33,9 +31,13 @@
         
         
         <p>Deperciation Category</p>
-            <select name="resp">
-                <option value="1"> MACRS</option>
-                <option value="2"> Straight Line</option>
+            <select id="Category">
+                <option value="3"> 3 Years</option>
+                <option value="5"> 5 Years</option>
+                <option value="7"> 7 Years</option>
+                <option value="10"> 10 Years</option>
+                <option value="15"> 15 Years</option>
+                <option value="20"> 20 Years</option>
             </select>
         <br><br>
         <div id="PaybackTable" class="tb"></div>
@@ -51,7 +53,9 @@
         <div class="">
           <a type="button" name="Enter" onclick="addTable()" class="btn btn-primary btn-learn" id="btn_periods">Enter Periods</a>
           
-            <a type="button" name="PB" onclick="calculatePaybackPeriod()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate</a>
+            <a type="button" name="PB" onclick="calculatePaybackPeriod()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate MACRS</a>
+            
+            <a type="button" name="SL" onclick="calculateStraigthLine()" class="btn btn-primary btn-learn" id="btn_calculateSL">Calculate STRAIGTH LINE </a>
         </div>
 
       </div>
