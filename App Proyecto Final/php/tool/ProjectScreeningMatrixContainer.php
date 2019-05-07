@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Checklist</title>
+	<title>Depreciation</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -43,10 +43,10 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+
+	<script src=”https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js”></script>
+	<script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
+
 
 	</head>
 	<body>
@@ -60,19 +60,26 @@
 					<li><a href="menu.php">Home</a></li>
 					<li><a href="PaybackPeriodContainer.php">Payback Period</a></li>
 					<li><a href="NPVContainer.php">Net Present Value</a></li>
-					<li class="colorlib-active"><a href="#">Checklist</a></li>
+					<li><a href="ChecklistContainer.php">Checklist</a></li>
 					<li><a href="DepreciationContainer.php">Depreciation</a></li>
-					<li><a href="ProjectScreeningMatrixContainer.php">Screening Matrix</a></li>
+					<li class="colorlib-active"><a>Screening Matrix</a></li>
 				</ul>
 			</nav>
 		</aside>
 
-		<div id="colorlib-main">
-			<div class="row-full">
-					<iframe src="checkList.html" class="row-full" id = "calculationFrame"></iframe>
-			</div>
-
+		
+		<div id="">
+			<center>				
+				<div style="margin-top: 19%; margin-left: 15%;">
+					<a type="button" name="straightLineButton" class="btn btn-primary btn-learn" href="../../docs/Project-Screening-Matrix.xlsx">
+						Download Matrix
+					</a>
+					
+				</div>
+				
+			</center>
 		</div>
+
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>

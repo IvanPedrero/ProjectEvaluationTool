@@ -65,7 +65,7 @@
 
 		<!--Main Frame-->
 		<div id="mainWindow">
-			<iframe src="menu.html" frameborder="0" allowfullscreen
+			<iframe src="menu.php" frameborder="0" allowfullscreen
                     style="position:absolute;left:0;width:100%;height:100%;"></iframe>
 		</div>
 

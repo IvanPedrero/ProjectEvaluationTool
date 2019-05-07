@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Checklist</title>
+	<title>NPV</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -59,8 +59,8 @@
 					<li><img src="images/logo.png" width="120" height="120"></img><br><br><li>
 					<li><a href="menu.php">Home</a></li>
 					<li><a href="PaybackPeriodContainer.php">Payback Period</a></li>
-					<li><a href="NPVContainer.php">Net Present Value</a></li>
-					<li class="colorlib-active"><a href="#">Checklist</a></li>
+					<li class="colorlib-active"><a href="#">Net Present Value</a></li>
+					<li><a href="ChecklistContainer.php">Checklist</a></li>
 					<li><a href="DepreciationContainer.php">Depreciation</a></li>
 					<li><a href="ProjectScreeningMatrixContainer.php">Screening Matrix</a></li>
 				</ul>
@@ -69,7 +69,7 @@
 
 		<div id="colorlib-main">
 			<div class="row-full">
-					<iframe src="checkList.html" class="row-full" id = "calculationFrame"></iframe>
+					<iframe src="npv.php" class="row-full" id = "calculationFrame"></iframe>
 			</div>
 
 		</div>

@@ -60,12 +60,12 @@
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><img src="images/logo.png" width="120" height="120"></img><br><br><li>
-					<li><a href="menu.html">Home</a></li>
-					<li><a href="PaybackPeriodContainer.html">Payback Period</a></li>
-					<li><a href="NPVContainer.html">Net Present Value</a></li>
+					<li><a href="menu.php">Home</a></li>
+					<li><a href="PaybackPeriodContainer.php">Payback Period</a></li>
+					<li><a href="NPVContainer.php">Net Present Value</a></li>
 					<li><a href="ChecklistContainer.php">Checklist</a></li>
 					<li class="colorlib-active"><a href="#">Depreciation</a></li>
-					<li><a href="ProjectScreeningMatrixContainer.html">Screening Matrix</a></li>
+					<li><a href="ProjectScreeningMatrixContainer.php">Screening Matrix</a></li>
 				</ul>
 			</nav>
 		</aside>
