@@ -34,7 +34,7 @@ curl_close($curl);
 
 if ($err) {
     echo "cURL Error #:" . $err;
-    header("Location: ../login.html");
+    header("Location: ../index.php");
 } else {
     if(json_decode($response)->response == "INCORRECT_PASSWORD" || json_decode($response)->response == "USER_NOT_FOUND"){
         //echo json_decode($response)->response;
@@ -48,7 +48,7 @@ if ($err) {
             //include("../dashboard.php");
             $_SESSION["user_data"] = (json_decode($response)->response);
             session_write_close();
-            header("Location: ../dashboard.php");
+            header("Location: content/dashboard.php?upload=no");
         exit();
     }
 }

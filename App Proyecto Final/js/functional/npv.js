@@ -35,7 +35,7 @@ function addTable() {
     var tr = document.createElement('TR');
     tableBody.appendChild(tr);
 
-    for (var j = 0; j <= 3; j++) {
+    for (var j = 0; j <= 2; j++) {
       var td = document.createElement('TD');
       td.width = '75';
       td.height = '20';
@@ -97,6 +97,9 @@ function calculatePaybackPeriod(){
 
   //Get the salvage value.
   var salvage_value = parseFloat(document.getElementById("salvage_value").value);
+
+  //npv value
+  var npv = 0;
 
   //console.log(" after p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
   //Validate interest is between 0 - 100.
@@ -200,9 +203,12 @@ function calculatePaybackPeriod(){
         paybackPeriodNetCash[i - 1] = paybackPeriodNetCash[i - 1] * presentValueFactor;
         document.getElementById("pb_cell_"+i+"_"+j).value = paybackPeriodNetCash[i - 1];
 
+        npv = +npv + +paybackPeriodNetCash[i - 1];
+
         //Create the cumulative cash flow.
-        principal += paybackPeriodNetCash[i - 1];
-        document.getElementById("pb_cell_"+i+"_3").value = principal;
+        
+        //principal += paybackPeriodNetCash[i - 1];
+        //document.getElementById("pb_cell_"+i+"_3").value = principal;
 
         //Calculate the salvage value!
         if(i == sTableName.children[0].childElementCount-1){
@@ -211,19 +217,24 @@ function calculatePaybackPeriod(){
           prev_value = +prev_value + +salvage_value;
 
           document.getElementById("pb_cell_"+i+"_0").value = prev_value;
+
+          //Get the first value.
+          npv = npv + (principal * (1 + taxPercentage));  
+
         }
 
       }
     }
   }
-  console.log("Final npv value : "+ principal);
+
+  console.log("Final npv value : "+ npv);
 
   var investmentDecision = "";
 
-  if(principal < 0){
+  if(npv < 0){
     investmentDecision = "unacceptable investment!"
     document.getElementById("investmentValue").style.color = "red";
-  }else if(principal > 0){
+  }else if(npv > 0){
     investmentDecision = "acceptable investment!"
     document.getElementById("investmentValue").style.color = "green";
   }else{
@@ -232,8 +243,8 @@ function calculatePaybackPeriod(){
   }
 
   //Set the final value of fthe npv.
-  document.getElementById("finalNpvValue").innerHTML = "Net Present Value is = " +principal;"It is an "+investmentDecision
-  document.getElementById("investmentValue").innerHTML = "It is an "+investmentDecision;
+  document.getElementById("finalNpvValue").innerHTML = "Net Present Value is = " + npv +". It is an " + investmentDecision;
+  document.getElementById("investmentValue").innerHTML = "It is an " + investmentDecision;
 }
 
 function HideCalculateButton(){

@@ -87,29 +87,29 @@ function calculatePaybackPeriod(){
 
   var principal = document.getElementById("principal").value;
 
-  //Get the tax from the page.
-  var tax = parseFloat(document.getElementById("tax_rate").value);
+  //Get the interest from the page.
+  var interest = parseFloat(document.getElementById("interest_rate").value);
 
-  console.log(" after p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
-  //Validate tax is between 0 - 100.
-  if(!tax){
-    tax = 0;
-    alert("WARNING: There is no tax rate.");
-    document.getElementById("tax_rate").value = "0";
-  }else if(tax < 0){
-    tax = 0;
-    alert("Tax percentage must be positive!");
-    document.getElementById("tax_rate").value = "0";
+  console.log(" after p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
+  //Validate interest is between 0 - 100.
+  if(!interest){
+    interest = 0;
+    alert("WARNING: There is no interest rate.");
+    document.getElementById("interest_rate").value = "0";
+  }else if(interest < 0){
+    interest = 0;
+    alert("interest percentage must be positive!");
+    document.getElementById("interest_rate").value = "0";
   }
-  if(tax > 100){
-    tax = 100;
-    alert("Tax percentage must not surpass 100%!");
-    document.getElementById("tax_rate").value = "100";
+  if(interest > 100){
+    interest = 100;
+    alert("interest percentage must not surpass 100%!");
+    document.getElementById("interest_rate").value = "100";
   }
 
-  //Calculate the tax percentage for cleaner code.
-  var taxPercentage;
-  taxPercentage = tax / 100;
+  //Calculate the interest percentage for cleaner code.
+  var interestPercentage;
+  interestPercentage = interest / 100;
 
 
 
@@ -122,7 +122,7 @@ function calculatePaybackPeriod(){
     principal = principal*-1;
   }
 
-  console.log(" before p : "+ principal +" tax : "+tax+" tax p :"+taxPercentage);
+  console.log(" before p : "+ principal +" interest : "+interest+" interest p :"+interestPercentage);
 
   //Define the present value factor.
   var presentValueFactor;
@@ -133,7 +133,7 @@ function calculatePaybackPeriod(){
   for(var i = 1; i < sTableName.children[0].childElementCount ; i++)
   {
     //Calculate the present value factor.
-    presentValueFactor = 1/(Math.pow(1 + taxPercentage, i));
+    presentValueFactor = 1/(Math.pow(1 + interestPercentage, i));
 
     var tableRow = sTableName.children[0].children[i];
 
@@ -179,13 +179,12 @@ function calculatePaybackPeriod(){
             alreadyCountedpb = true;
             pb = i;
           }
-
         }
-
       }
     }
   }
   document.getElementById("payback_period_value").innerHTML = "Payback period : "+ pb;
+
 
 }
 
@@ -197,3 +196,4 @@ function HideCalculateButton(){
 function ShowCalculateButton(){
   document.getElementById("btn_calculate").style.display = 'inline-block';
 }
+

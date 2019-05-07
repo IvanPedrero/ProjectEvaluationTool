@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <script type="text/javascript" src="js/functional/paybackPeriod.js"></script>
+    <script type="text/javascript" src="js/functional/macrs.js"></script>
 
-    <title>Payback Period</title>
+    <title>MACRS</title>
 
   </head>
-  <body onLoad="HideCalculateButton()">
+  <body>
 
       <div class="center">
 
@@ -17,19 +17,23 @@
         <p>Principal :</p>
         <input type="number" name="" value="" id="principal">
         <br>
-        <p>Tax Rate (%) :</p>
-        <input type="number" name="" value="" id="tax_rate">
-        <br><br>
-        <div id="PaybackTable" class="tb"></div>
+        <p>Category :</p>
+         <select name="category" id="category">
+          <option value="3">3 Year</option>
+          <option value="5">5 Year</option>
+          <option value="7">7 Year</option>
+          <option value="10">10 Year</option>
+          <option value="15">15 Year</option>
+          <option value="20">20 Year</option>
+        </select> 
+        <br>
+        <br>
+        <div id="MACRSTable" class="tb"></div>
         <br>
         <div class="">
-          <p id = "payback_period_value"></p>
+          <a type="button" onclick="addTable()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate</a>
         </div>
-        <br><br>
-        <div class="">
-          <a type="button" name="Enter" onclick="addTable()" class="btn btn-primary btn-learn" id="btn_periods">Enter Periods</a>
-          <a type="button" name="PB" onclick="calculatePaybackPeriod()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate</a>
-        </div>
+        <br>
 
       </div>
 
@@ -61,7 +65,7 @@
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Flaticons  -->

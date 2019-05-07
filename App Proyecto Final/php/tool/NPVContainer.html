@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Depreciation</title>
+	<title>NPV</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -30,7 +30,7 @@
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Flaticons  -->
@@ -42,7 +42,7 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<!-- Modernizr JS -->
-	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -53,21 +53,23 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="index.html"> Evaluation Tool</a></h1>
+			<h1 id="colorlib-logo"><a href="index.php"> Evaluation Tool</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
+					<li><img src="images/logo.png" width="120" height="120"></img><br><br><li>
 					<li><a href="menu.html">Home</a></li>
 					<li><a href="PaybackPeriodContainer.html">Payback Period</a></li>
-					<li><a href="NPVContainer.html">Net Present Value</a></li>
-					<li><a href="ChecklistContainer.html">Checklist</a></li>
-					<li class="colorlib-active"><a href="#">Depreciation</a></li>
+					<li class="colorlib-active"><a href="#">Net Present Value</a></li>
+					<li><a href="ChecklistContainer.php">Checklist</a></li>
+					<li><a href="DepreciationContainer.php">Depreciation</a></li>
+					<li><a href="ProjectScreeningMatrixContainer.html">Screening Matrix</a></li>
 				</ul>
 			</nav>
 		</aside>
 
 		<div id="colorlib-main">
 			<div class="row-full">
-					<iframe src="depreciation.html" class="row-full" id = "calculationFrame"></iframe>
+					<iframe src="npv.html" class="row-full" id = "calculationFrame"></iframe>
 			</div>
 
 		</div>
@@ -79,7 +81,7 @@
 	<!-- Bootstrap -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/counterup/waypoints.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Flexslider -->
 	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Sticky Kit -->
