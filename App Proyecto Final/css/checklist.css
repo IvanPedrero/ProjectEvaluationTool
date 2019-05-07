@@ -18,7 +18,6 @@ body
   .right div td
   {
 	  display: inline-block;
-	  
 	  display:inline-block;
 	  background-color: red; 
   }
@@ -39,6 +38,12 @@ body
     margin-left: 50.7%;
     margin-top: 1.6%;
     font-size: 12.7px;
-   
+}
+
+#resp1
+{
+    height: 17px;
+    width: 200%;
+    resize: none;
 }
 
