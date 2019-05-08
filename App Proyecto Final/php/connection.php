@@ -34,12 +34,12 @@ curl_close($curl);
 
 if ($err) {
     echo "cURL Error #:" . $err;
-    header("Location: ../index.php");
 } else {
     if(json_decode($response)->response == "INCORRECT_PASSWORD" || json_decode($response)->response == "USER_NOT_FOUND"){
         //echo json_decode($response)->response;
-        echo "Credenciales incorrectas \n\n";
-        echo $response;
+        /*echo "Credenciales incorrectas \n\n";*/
+        /*echo $response;*/
+        header("Location: ../index.php?error=LOGIN_ERROR");
     }
     else{
         session_start();
@@ -47,8 +47,8 @@ if ($err) {
             //echo $response;
             //include("../dashboard.php");
             $_SESSION["user_data"] = (json_decode($response)->response);
-            session_write_close();
-            header("Location: content/dashboard.php?upload=no");
+        session_write_close();
+        header("Location: ../dashboard.php?upload=no");
         exit();
     }
 }

@@ -1745,7 +1745,7 @@ Makes editable any HTML element on the page. Applied as jQuery method.
             } else {
                 //detect empty
                 //for some inputs we need more smart check
-                //e.g. wysihtml5 may have <br>, <p></p>, <images>
+                //e.g. wysihtml5 may have <br>, <p></p>, <img>
                 if(typeof(this.input.isEmpty) === 'function') {
                     this.isEmpty = this.input.isEmpty(this.$element);                    
                 } else {
@@ -3605,7 +3605,7 @@ You should manually download and include select2 distributive:
     
 To make it **bootstrap-styled** you can use css from [here](https://github.com/t0m/select2-bootstrap-css): 
 
-    <link href="select2-bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+    <link href="select2-bootstrap.css" rel="stylesheet" type="text/css"></link>    
     
 **Note:** currently `autotext` feature does not work for select2 with `ajax` remote source.    
 You need initially put both `data-value` and element's text youself:    

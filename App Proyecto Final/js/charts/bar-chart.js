@@ -277,7 +277,7 @@
 				text:"Bar Chart Multi Axis"
 			},
 			tooltips: {
-				mode: 'index.php',
+				mode: 'index',
 				intersect: true
 			},
 			scales: {
@@ -330,7 +330,7 @@
 				text:"Bar Chart Stacked"
 			},
 			tooltips: {
-				mode: 'index.php',
+				mode: 'index',
 				intersect: false
 			},
 			responsive: true,

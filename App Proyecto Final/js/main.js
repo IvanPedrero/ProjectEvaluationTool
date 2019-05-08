@@ -214,7 +214,4 @@
 			$(".sparkline16-collapse-close").on('click', function(){
 				$( "div.sparkline16-list" ).fadeOut( 600 );
 			});
- 
-		 
- 
-})(jQuery); 
+})(jQuery);

@@ -2,10 +2,10 @@
  "use strict";
  
  
-		var $image = $(".image-crop > images")
+		var $image = $(".image-crop > img")
             $($image).cropper({
                 aspectRatio: 1.618,
-                preview: ".images-preview",
+                preview: ".img-preview",
                 done: function(data) {
                     // Output the result data for cropping image.
                 }

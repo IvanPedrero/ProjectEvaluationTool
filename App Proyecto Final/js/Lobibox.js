@@ -1276,7 +1276,7 @@ var Lobibox = Lobibox || {};
 
             // Add image or icon depending on given parameters
             if (me.$options.img) {
-                $innerIconEl.append('<images src="' + me.$options.img + '"/>');
+                $innerIconEl.append('<img src="' + me.$options.img + '"/>');
             } else if (me.$options.icon) {
                 $innerIconEl.append('<div class="icon-el"><i class="' + me.$options.icon + '"></i></div>');
             } else {

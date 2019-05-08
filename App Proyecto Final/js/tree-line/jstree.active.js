@@ -48,7 +48,7 @@ $('#jstree1').jstree({
                                     'text': 'animate.css', 'icon': 'none'
                                 },
                                 {
-                                    'text': 'bootstrap.min.css', 'icon': 'none'
+                                    'text': 'bootstrap.css', 'icon': 'none'
                                 },
                                 {
                                     'text': 'main.css', 'icon': 'none'

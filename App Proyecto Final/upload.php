@@ -4,7 +4,7 @@
 <head>
     <!-- dropzone CSS
 		============================================ -->
-    <link rel="stylesheet" href="../../css/dropzone.css">
+    <link rel="stylesheet" href="css/dropzone.css">
 </head>
 
 <body class="darklayout">
@@ -61,7 +61,7 @@
 
     <!--  dropzone JS
 		============================================ -->
-    <script src="../../js/dropzone.js"></script>
+    <script src="js/dropzone.js"></script>
 
 </body>
 

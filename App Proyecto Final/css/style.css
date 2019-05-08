@@ -18,6 +18,7 @@
 	4. Main Menu CSS
 	5. Tinymce CSS
 	6. Breadcome CSS
+	7. Ivan CSS
 
 -----------------------------------------------------------------------------------*/
 
@@ -25,7 +26,8 @@
 /*  1.  Theme default CSS
 /*----------------------------------------*/
 html, body {font-family: 'Open Sans', sans-serif;font-weight:400;background: #03a9f0}
-html, body.darklayout {background: #212121}
+/*html, body.darklayout {background: #212121}*/
+html, body.darklayout {background: #fff}
 .floatleft {float:left}
 .floatright {float:right}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
@@ -63,7 +65,7 @@ padding: 0
   font-weight: normal;
   font-style: normal;
 }
-@font-face{font-family:"summernote";font-style:normal;font-weight:normal;src:url("../fonts/summernote.eot?0d0d5fac99cc8774d89eb08b1a8323c4");src:url("../fonts/summernote.eot?#iefix") format("embedded-opentype"),url("../fonts/summernote.woff?0d0d5fac99cc8774d89eb08b1a8323c4") format("woff"),url("../fonts/summernote.ttf?0d0d5fac99cc8774d89eb08b1a8323c4") format("truetype")}
+@font-face{font-family:"summernote";font-style:normal;font-weight:normal;src:url("fonts/summernote.eot?0d0d5fac99cc8774d89eb08b1a8323c4");src:url("fonts/summernote.eot?#iefix") format("embedded-opentype"),url("fonts/summernote.woff?0d0d5fac99cc8774d89eb08b1a8323c4") format("woff"),url("fonts/summernote.ttf?0d0d5fac99cc8774d89eb08b1a8323c4") format("truetype")}
 .mg-tb-40{
 	margin:40px 0px;
 }
@@ -1584,7 +1586,7 @@ ul.comment-action-st li a{
 	background:#fff;
 	bottom: 70px;
     right: 50px;
-	opacity: 0%;
+	opacity:0px;
 	transition:all .4s ease 0s;
 }
 .chat-box-wrap.collapse.in{
@@ -1594,7 +1596,7 @@ ul.comment-action-st li a{
 	background:#fff;
 	bottom: 90px;
     right: 50px;
-	opacity: 1%;
+	opacity:1px;
 	transition:all .4s ease 0s;
 	z-index:999;
 	border:1px solid #303030;
@@ -1962,7 +1964,7 @@ li.multipleInput-email {
 .multipleInput-close {
      width:16px;
      height:16px;
-     background:url(../images/close.png);
+     background:url(close.png);
      display:block;
      float:right;
      margin:0 3px;
@@ -2881,9 +2883,9 @@ ul.profile-contact-menu {
 	width:100%;
 }
 /*----------------------------------------*/
-/*  33.  Preloading css
+/*  33.  Preloader css
 /*----------------------------------------*/
-.preloading-single{
+.preloader-single{
 	background: #fff;
     width: 100%;
     height: 350px;
@@ -2973,7 +2975,7 @@ ul.profile-contact-menu {
     padding: 0;
     width: 22px;
     height: 22px;
-    background: url(../images/green1.png) no-repeat;
+    background: url(img/green1.png) no-repeat;
     border: none;
     cursor: pointer;
 }
@@ -3932,7 +3934,7 @@ ul.breadcome-menu {
 .darklayout .inbox-email-menu-list .nav-tabs li .count-inbox{
 	margin-left:100px;
 }
-.darklayout .datepicker thead tr:first-child th:hover, .darklayout .datepicker tfoot tr th:hover, .darklayout .datepicker table tr td.day:hover, .darklayout .datepicker table tr td.day.focused, .darklayout .datepicker table tr td span:hover, .darklayout .datepicker table tr td.range, .darklayout .analytics-adminpro, .darklayout .analytics-sparkle-line, .darklayout .analytics-rounded, .darklayout .analysis-progrebar, .darklayout .charts-single-pro, .darklayout .notification-list, .darklayout .button-ad-wrap, .darklayout .tinymce-single, .darklayout .x-editable-list, .darklayout .pdf-single-pro, .darklayout .code-editor-single, .darklayout .custom-inbox-message, .darklayout .inbox-email-menu-list, .darklayout li.multipleInput-email, .darklayout .single-skill, .darklayout .contact-client-single, .darklayout .user-profile-wrap, .darklayout .user-profile-about, .darklayout .user-profile-post, .darklayout .user-profile-mutual-friends, .darklayout .project-details-wrap, .darklayout .project-details-descri, .darklayout .project-details-files, .darklayout .popover, .darklayout .popover-title, .darklayout .modal-bootstrap, .darklayout .dropzone-custom-sys, .darklayout .dropzone-pro, .darklayout .preloading-single, .darklayout .user-profile-comment-input textarea, .darklayout .comment-replay-profile .btn-white, .darklayout .widget-flot-bg, .darklayout .menu-list-wrap, .darklayout .custon-tab-style1, .darklayout .author-permissio-wrap, .darklayout .card-box{
+.darklayout .datepicker thead tr:first-child th:hover, .darklayout .datepicker tfoot tr th:hover, .darklayout .datepicker table tr td.day:hover, .darklayout .datepicker table tr td.day.focused, .darklayout .datepicker table tr td span:hover, .darklayout .datepicker table tr td.range, .darklayout .analytics-adminpro, .darklayout .analytics-sparkle-line, .darklayout .analytics-rounded, .darklayout .analysis-progrebar, .darklayout .charts-single-pro, .darklayout .notification-list, .darklayout .button-ad-wrap, .darklayout .tinymce-single, .darklayout .x-editable-list, .darklayout .pdf-single-pro, .darklayout .code-editor-single, .darklayout .custom-inbox-message, .darklayout .inbox-email-menu-list, .darklayout li.multipleInput-email, .darklayout .single-skill, .darklayout .contact-client-single, .darklayout .user-profile-wrap, .darklayout .user-profile-about, .darklayout .user-profile-post, .darklayout .user-profile-mutual-friends, .darklayout .project-details-wrap, .darklayout .project-details-descri, .darklayout .project-details-files, .darklayout .popover, .darklayout .popover-title, .darklayout .modal-bootstrap, .darklayout .dropzone-custom-sys, .darklayout .dropzone-pro, .darklayout .preloader-single, .darklayout .user-profile-comment-input textarea, .darklayout .comment-replay-profile .btn-white, .darklayout .widget-flot-bg, .darklayout .menu-list-wrap, .darklayout .custon-tab-style1, .darklayout .author-permissio-wrap, .darklayout .card-box{
 	background-color: #393939;
 } 
 .darklayout li.multipleInput-email{
@@ -3974,8 +3976,9 @@ ul.breadcome-menu {
 	display:none;
 }
 
+
 /* ---------------------------------------------------
-    Iván Style
+    Ivan CSS
 ----------------------------------------------------- */
 
 @font-face {
@@ -4052,9 +4055,9 @@ figure figcaption {
 	figure figcaption {
 		width: 100%; } }
 
-/*::-webkit-selection {
+::-webkit-selection {
 	color: #fff;
-	background: #77b6ff; }*/
+	background: #77b6ff; }
 
 ::-moz-selection {
 	color: #fff;
@@ -4067,7 +4070,8 @@ figure figcaption {
 #colorlib-page {
 	width: 100%;
 	overflow: hidden;
-	position: relative; }
+	position: relative;
+}
 
 #colorlib-aside {
 	padding-top: 3em;
@@ -4224,7 +4228,7 @@ figure figcaption {
 
 #colorlib-hero {
 	min-height: 500px;
-	background: #fff url(../images/loading.gif) no-repeat center center;
+	background: #fff url(../images/loader.gif) no-repeat center center;
 	width: 100%;
 	float: left;
 	margin-bottom: 10em;
@@ -4665,7 +4669,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 .blog-entry .desc h3 {
 	font-size: 16px;
 	margin-bottom: 25px;
-	line-height: initial;
+	line-height: auto;
 	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 1px; }
@@ -4781,7 +4785,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 		opacity: 1;
 		background: rgba(0, 0, 0, 0.4); }
 	.project .desc h3 {
-		font-style: normal;
+		font-style: 28px;
 		-webkit-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
 		color: #000; }
@@ -5004,7 +5008,7 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 	border-color: #2785de !important; }
 .btn-primary.btn-outline {
 	background: transparent;
-	color: #77b6ff;
+	color: ##77b6ff;
 	border: 2px solid #77b6ff; }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
 	background: #77b6ff;
@@ -5249,4 +5253,5 @@ body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
 		clear: both;
 		height: inherit !important;
 		float: left;
-		padding-top: 30px; } }
+		padding-top: 30px; }
+}

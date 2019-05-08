@@ -429,7 +429,7 @@ function generate(el, opts, player) {
 		o.css('backgroundColor', o.bgColor);
 	}
 	else if (player == 'img') {
-		o = $('<images>');
+		o = $('<img>');
 		o.attr('src', opts.src);
 		if (opts.width)
 			o.attr('width', opts.width);

@@ -31,7 +31,7 @@
 				text:'Basic Line Chart'
 			},
 			tooltips: {
-				mode: 'index.php',
+				mode: 'index',
 				intersect: false,
 			},
 			hover: {
@@ -96,7 +96,7 @@
 		},
 		options: {
 			responsive: true,
-			hoverMode: 'index.php',
+			hoverMode: 'index',
 			stacked: false,
 			title:{
 				display: true,
@@ -206,7 +206,7 @@
 				text:'Line Chart interpolation'
 			},
 			tooltips: {
-				mode: 'index.php'
+				mode: 'index'
 			},
 			scales: {
 				xAxes: [{
@@ -271,7 +271,7 @@
 				text:'Line Chart Style'
 			},
 			tooltips: {
-				mode: 'index.php',
+				mode: 'index',
 				intersect: false,
 			},
 			hover: {

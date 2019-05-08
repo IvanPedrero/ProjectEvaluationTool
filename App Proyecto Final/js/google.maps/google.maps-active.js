@@ -31,7 +31,7 @@ function initMap() {
                 position: new google.maps.LatLng(20.192828, 85.853742),
                 googleMap: googleMap,
                 title: 'Ramble!',
-                icon: 'images/googlemap/1.png',
+                icon: 'img/googlemap/1.png',
                 animation: google.maps.Animation.BOUNCE
 
             });

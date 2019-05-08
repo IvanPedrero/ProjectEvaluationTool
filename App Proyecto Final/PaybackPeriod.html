@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <script type="text/javascript" src="js/functional/straightLine.js"></script>
+    <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+    
+    <script type="text/javascript" src="js/functional/paybackPeriod.js"></script>
 
-    <title>Straight Line Method</title>
+    <title>Payback Period</title>
 
   </head>
-  <body>
+  <body onLoad="HideCalculateButton()" id="target">
 
       <div class="center">
 
@@ -17,21 +18,25 @@
         <p>Principal :</p>
         <input type="number" name="" value="" id="principal">
         <br>
-        <p>Rescue Value :</p>
-        <input type="number" name="" value="" id="rescue_value">
-        <br>
-        <br>
-        <div id="SLMTable" class="tb"></div>
+        <p>Interest Rate (%) :</p>
+        <input type="number" name="" value="" id="interest_rate">
+        <br><br>
+        <div id="PaybackTable" class="tb"></div>
         <br>
         <div class="">
-          <a type="button" name="PB" onclick="addTable()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate</a>
+          <p id = "payback_period_value"></p>
         </div>
-        <br>
+        <br><br>
+        <div class="">
+          <a type="button" name="Enter" onclick="addTable()" class="btn btn-primary btn-learn" id="btn_periods">Enter Periods</a>
+          <a type="button" name="PB" onclick="calculatePaybackPeriod()" class="btn btn-primary btn-learn" id="btn_calculate">Calculate</a>
+        </div>   
 
-      </div>
+	</div>
 
   </body>
 
+ 
   <style>
   .center{
     margin-left: 10%;

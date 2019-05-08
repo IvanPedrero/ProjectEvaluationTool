@@ -1,3 +1,7 @@
+<?php
+    $ERR = $_GET[error];
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -46,6 +50,32 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- jquery
+		============================================ -->
+    <script src="js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- form validate JS
+		============================================ -->
+    <script src="js/jquery.form.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/form-active.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="js/main.js"></script>
 </head>
 
 <body class="darklayout">
@@ -992,7 +1022,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4"></div>
-                        <form id="adminpro-form" class="adminpro-form" target="_blank" action="php/connection.php" method="POST">
+                        <form id="adminpro-form" class="adminpro-form" target="_self" action="php/connection.php" method="POST">
                             <div class="col-lg-4">
                                 <div class="login-bg">
                                     <div class="row">
@@ -1070,6 +1100,21 @@
             </div>
             <!-- login End-->
         </div>
+
+
+
+        <div id="ViewModalblbgpro" class="modal modal-adminpro-general default-popup-PrimaryModal PrimaryModal-bgcolor fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <?php
+                            echo "Authentication Problem"
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- Footer Start-->
     <div class="footer-copyright-area">
@@ -1084,32 +1129,15 @@
         </div>
     </div>
     <!-- Footer End-->
-    <!-- jquery
-		============================================ -->
-    <script src="js/vendor/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="js/jquery.meanmenu.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <!-- form validate JS
-		============================================ -->
-    <script src="js/jquery.form.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/form-active.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="js/main.js"></script>
+    <?php
+        if( $ERR === "LOGIN_ERROR") {
+    ?>
+        <script type="text/javascript">
+            $('#ViewModalblbgpro').modal('show');
+        </script>
+    <?php
+        }
+    ?>
 </body>
 
 </html>
