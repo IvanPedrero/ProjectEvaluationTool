@@ -33,21 +33,24 @@ function addTable() {
     var tr = document.createElement('TR');
     tableBody.appendChild(tr);
 
-    for (var j = 0; j <= 3; j++) {
+    for (var j = 0; j <= 4; j++) {
       var td = document.createElement('TD');
       td.width = '75';
       td.height = '20';
 
       if(i == 0 && j == 0){
-        td.appendChild(document.createTextNode("Inflows"));
+        td.appendChild(document.createTextNode("n"));
 
       }else if(i == 0 && j == 1){
-        td.appendChild(document.createTextNode("Outflows"));
+        td.appendChild(document.createTextNode("Inflows"));
 
       }else if(i == 0 && j == 2){
-        td.appendChild(document.createTextNode("Actual Cash Flow"));
+        td.appendChild(document.createTextNode("Outflows"));
 
       }else if(i == 0 && j == 3){
+        td.appendChild(document.createTextNode("Actual Cash Flow"));
+
+      }else if(i == 0 && j == 4){
         td.appendChild(document.createTextNode("Cumulative Cash Flow"));
 
       }else{
@@ -56,9 +59,13 @@ function addTable() {
         input.setAttribute('type', 'number');
         td.appendChild(input);
         input.setAttribute('id', 'pb_cell_'+i+'_'+j);
+        input.setAttribute('step', '.02');
 
         //Disable the inputs if they are the ones you will calculate.
-        if(j == 2 || j == 3){
+        if(j==0){
+        	input.value = i;
+        }
+        if(j == 0 || j == 3 || j == 4){
           input.setAttribute('type', 'text');
           input.setAttribute("readonly", true);
           input.setAttribute('value', '-');
@@ -148,17 +155,16 @@ function calculatePaybackPeriod(){
         tableColumn.value = 0;
         document.getElementById("pb_cell_"+i+"_"+j).value = 0;
       }
-
       //Inflows
-      if(j == 0){
+      if(j == 1){
         paybackPeriodInflows[i - 1] = tableColumn.value;
       }
       //Outflows
-      if(j == 1){
+      if(j == 2){
         paybackPeriodOutflows[i - 1] = tableColumn.value;
       }
       //Get the Net Cash...
-      if(j == 2){
+      if(j == 3){
         //Create the net cash flow.
         paybackPeriodNetCash[i - 1] = paybackPeriodInflows[i - 1] - paybackPeriodOutflows[i - 1]
         paybackPeriodNetCash[i - 1] = paybackPeriodNetCash[i - 1] * presentValueFactor;
@@ -166,18 +172,21 @@ function calculatePaybackPeriod(){
 
         //Create the cumulative cash flow.
         principal += paybackPeriodNetCash[i - 1];
-        document.getElementById("pb_cell_"+i+"_3").value = principal;
+        document.getElementById("pb_cell_"+i+"_4").value = principal;
 
         //Paint the final results for design points.
         if(principal < 0){
-          document.getElementById("pb_cell_"+i+"_3").style.color = "red";
+          document.getElementById("pb_cell_"+i+"_4").style.color = "red";
         }else{
 
-          document.getElementById("pb_cell_"+i+"_3").style.color = "green";
+          document.getElementById("pb_cell_"+i+"_4").style.color = "green";
 
           if(alreadyCountedpb == false){
             alreadyCountedpb = true;
             pb = i;
+            if(document.getElementById("pb_cell_"+i+"_4").value == 0){
+            	pb++;
+            }
           }
         }
       }

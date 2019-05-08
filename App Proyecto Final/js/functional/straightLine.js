@@ -32,18 +32,21 @@ function addTable() {
     var tr = document.createElement('TR');
     tableBody.appendChild(tr);
 
-    for (var j = 0; j <= 2; j++) {
+    for (var j = 0; j <= 3; j++) {
       var td = document.createElement('TD');
       td.width = '75';
       td.height = '20';
 
       if(i == 0 && j == 0){
-        td.appendChild(document.createTextNode("Annual Depreciation"));
+        td.appendChild(document.createTextNode("n"));
 
       }else if(i == 0 && j == 1){
-        td.appendChild(document.createTextNode("Cumulative Depreciation"));
+        td.appendChild(document.createTextNode("Annual Depreciation"));
 
       }else if(i == 0 && j == 2){
+        td.appendChild(document.createTextNode("Cumulative Depreciation"));
+
+      }else if(i == 0 && j == 3){
         td.appendChild(document.createTextNode("Value in Ledgers"));
 
       }else{
@@ -54,6 +57,10 @@ function addTable() {
         input.setAttribute('id', 'pb_cell_'+i+'_'+j);
 
         input.setAttribute("readonly", true);
+
+        if(j == 0){
+          input.value = i;
+        }
       }
 
       tr.appendChild(td);
@@ -125,16 +132,16 @@ function calculateSLM (){
       }
 
       //Annual Dep.
-      if(j == 0){
+      if(j == 1){
         document.getElementById("pb_cell_"+i+"_"+j).value = D;
       }
-      //Outflows
-      if(j == 1){
+      //Cum Dep.
+      if(j == 2){
         cumDep += D;
         document.getElementById("pb_cell_"+i+"_"+j).value = cumDep;
       }
-      //Get the Net Cash...
-      if(j == 2){
+      //Value in ledgers.
+      if(j == 3){
        
         valueInLedgers -= D;
         document.getElementById("pb_cell_"+i+"_"+j).value = valueInLedgers;

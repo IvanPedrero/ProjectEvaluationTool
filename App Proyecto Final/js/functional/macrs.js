@@ -39,21 +39,23 @@ function addTable() {
     var tr = document.createElement('TR');
     tableBody.appendChild(tr);
 
-    for (var j = 0; j <= 3; j++) {
+    for (var j = 0; j <= 4; j++) {
       var td = document.createElement('TD');
       td.width = '75';
       td.height = '20';
 
       if(i == 0 && j == 0){
+        td.appendChild(document.createTextNode("n"));
+      }else if(i == 0 && j == 1){
         td.appendChild(document.createTextNode("MACRS %"));
       }
-      else if(i == 0 && j == 1){
+      else if(i == 0 && j == 2){
         td.appendChild(document.createTextNode("Depreciation"));
 
-      }else if(i == 0 && j == 2){
+      }else if(i == 0 && j == 3){
         td.appendChild(document.createTextNode("Cum. Depreciation"));
 
-      }else if(i == 0 && j == 3){
+      }else if(i == 0 && j == 4){
         td.appendChild(document.createTextNode("Value in Ledgers"));
 
       }else{
@@ -64,6 +66,10 @@ function addTable() {
         input.setAttribute('id', 'pb_cell_'+i+'_'+j);
 
         input.setAttribute("readonly", true);
+
+        if(j == 0){
+          input.value = i;
+        }
       }
 
       tr.appendChild(td);
@@ -147,22 +153,22 @@ function calculateMACRS (){
       }
 
       //MACRS
-      if(j == 0){
+      if(j == 1){
         document.getElementById("pb_cell_"+i+"_"+j).value = categoryArray[i-1];
       }
       //Dep.
-      if(j == 1){
+      if(j == 2){
         document.getElementById("pb_cell_"+i+"_"+j).value = principal*(categoryArray[i-1]/100);
       }
       //Cum Dep.
-      if(j == 2){
+      if(j == 3){
 
         cumDep += principal*(categoryArray[i-1]/100);
 
         document.getElementById("pb_cell_"+i+"_"+j).value = cumDep;
       }
       //Value un ledgers.
-      if(j == 3){
+      if(j == 4){
        
         valueInLedgers -= principal*(categoryArray[i-1]/100);
 

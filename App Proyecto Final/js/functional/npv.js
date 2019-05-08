@@ -35,21 +35,24 @@ function addTable() {
     var tr = document.createElement('TR');
     tableBody.appendChild(tr);
 
-    for (var j = 0; j <= 2; j++) {
+    for (var j = 0; j <= 4; j++) {
       var td = document.createElement('TD');
       td.width = '75';
       td.height = '20';
 
       if(i == 0 && j == 0){
-        td.appendChild(document.createTextNode("Inflows"));
+        td.appendChild(document.createTextNode("n"));
 
       }else if(i == 0 && j == 1){
-        td.appendChild(document.createTextNode("Outflows"));
+        td.appendChild(document.createTextNode("Inflows"));
 
       }else if(i == 0 && j == 2){
-        td.appendChild(document.createTextNode("Actual Cash Flow"));
+        td.appendChild(document.createTextNode("Outflows"));
 
       }else if(i == 0 && j == 3){
+        td.appendChild(document.createTextNode("Actual Cash Flow"));
+
+      }else if(i == 0 && j == 4){
         td.appendChild(document.createTextNode("Cumulative Cash Flow"));
 
       }else{
@@ -58,9 +61,13 @@ function addTable() {
         input.setAttribute('type', 'number');
         td.appendChild(input);
         input.setAttribute('id', 'pb_cell_'+i+'_'+j);
+        input.setAttribute('step', '.02');
 
+        if(j == 0){
+          input.value = i;
+        }
         //Disable the inputs if they are the ones you will calculate.
-        if(j == 2 || j == 3){
+        if(j == 0 || j == 3 || j == 4){
           input.setAttribute('type', 'text');
           input.setAttribute("readonly", true);
           input.setAttribute('value', '-');
@@ -91,6 +98,7 @@ function calculatePaybackPeriod(){
 
   //Get the interest from the page.
   var interest = parseFloat(document.getElementById("interest_rate").value);
+  
 
   //Get the interest from the page.
   var tax = parseFloat(document.getElementById("tax_rate").value);
@@ -185,7 +193,7 @@ function calculatePaybackPeriod(){
       }
 
       //Inflows
-      if(j == 0){
+      if(j == 1){
         paybackPeriodInflows[i - 1] = tableColumn.value;
 
         if(i == sTableName.children[0].childElementCount-1){
@@ -193,15 +201,21 @@ function calculatePaybackPeriod(){
         }
       }
       //Outflows
-      if(j == 1){
+      if(j == 2){
         paybackPeriodOutflows[i - 1] = tableColumn.value;
       }
       //Get the Net Cash...
-      if(j == 2){
+      if(j == 3){
         //Create the net cash flow.
-        paybackPeriodNetCash[i - 1] = paybackPeriodInflows[i - 1] - paybackPeriodOutflows[i - 1]
-        paybackPeriodNetCash[i - 1] = paybackPeriodNetCash[i - 1] * presentValueFactor;
+        paybackPeriodNetCash[i - 1] = paybackPeriodInflows[i - 1] - paybackPeriodOutflows[i - 1];
+
+        //Net cash flow.
         document.getElementById("pb_cell_"+i+"_"+j).value = paybackPeriodNetCash[i - 1];
+
+        paybackPeriodNetCash[i - 1] = paybackPeriodNetCash[i - 1] * presentValueFactor;
+
+        //Cumulative cash flow.
+        document.getElementById("pb_cell_"+i+"_"+(j+1)).value = paybackPeriodNetCash[i - 1];
 
         npv = +npv + +paybackPeriodNetCash[i - 1];
 
