@@ -27,6 +27,8 @@ function addTable() {
   var tableBody = document.createElement('TBODY');
   table.appendChild(tableBody);
 
+  var currentYear = document.getElementById("year").value;
+
   //Create inflows.
   for (var i = 0; i <= n; i++) {
     var tr = document.createElement('TR');
@@ -38,7 +40,7 @@ function addTable() {
       td.height = '20';
 
       if(i == 0 && j == 0){
-        td.appendChild(document.createTextNode("n"));
+        td.appendChild(document.createTextNode("Year"));
 
       }else if(i == 0 && j == 1){
         td.appendChild(document.createTextNode("Annual Depreciation"));
@@ -59,7 +61,8 @@ function addTable() {
         input.setAttribute("readonly", true);
 
         if(j == 0){
-          input.value = i;
+          input.value = currentYear;
+          currentYear++;
         }
       }
 
