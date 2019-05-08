@@ -183,7 +183,7 @@
                                                 <th data-field="action">Action</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="projectTable">
                                             <tr>
                                                 <td></td>
                                                 <td>1</td>

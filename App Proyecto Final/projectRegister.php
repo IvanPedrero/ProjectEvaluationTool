@@ -66,7 +66,7 @@
                     </div>
                     <br>
                     <div>
-                        <button type="submit" name="enterButton" class="btn btn-primary btn-learn">
+                        <button type="submit" name="enterButton" class="btn btn-primary btn-learn" onclick="NewProject()">
                             Add
                         </button>
                     </div>
