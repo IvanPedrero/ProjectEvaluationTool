@@ -343,12 +343,6 @@
 		============================================ -->
     <script src="js/main.js"></script>
 
-    <script type="text/javascript">
-    	var myIframe = document.getElementById('watson_frame');
-		myIframe.onload = function () {
-		    myIframe.contentWindow.scrollTo(100,100);
-		}
-    </script>
 </body>
 
 </html>

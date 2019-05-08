@@ -1591,8 +1591,8 @@ ul.comment-action-st li a{
 }
 .chat-box-wrap.collapse.in{
 	position: fixed;
-	height: 610px;
-    width: 410px;
+	height: 830px;
+    width: 500px;
 	background:#fff;
 	bottom: 90px;
     right: 50px;
