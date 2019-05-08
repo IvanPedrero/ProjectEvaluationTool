@@ -32,8 +32,7 @@
 
     <!--Main Frame-->
     <div id="mainWindow">
-        <iframe src="menu.html" frameborder="0" allowfullscreen
-                style="position:absolute;left:0;width:100%;height:600px;"></iframe>
+        <iframe src="menu.html" frameborder="0" allowfullscreen style="position:absolute; right: -20%; height: 600px; width: 1250px;"></iframe>
     </div>
 </body>
 </html>

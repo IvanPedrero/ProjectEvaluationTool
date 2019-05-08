@@ -12,9 +12,9 @@ function getElements(){
   mainWindow  = document.getElementById("mainWindow");
 
   //Hide the windows.
-  infoWindow.style.display = "block";
+  /*infoWindow.style.display = "block";
   mainWindow.style.display = "none";
-  document.getElementById("NewProjectButton").style.display = "none";
+  document.getElementById("NewProjectButton").style.display = "none";*/
 }
 
 function saveNames(){
@@ -48,8 +48,8 @@ function NewProject(){
     document.getElementById("projectNameDisplay").innerHTML = "";
 
     //Show corresponding windows.
-    infoWindow.style.display = "block";
+    /*infoWindow.style.display = "block";
     mainWindow.style.display = "none";
-    document.getElementById("NewProjectButton").style.display = "none";
+    document.getElementById("NewProjectButton").style.display = "none";*/
   }
 }
