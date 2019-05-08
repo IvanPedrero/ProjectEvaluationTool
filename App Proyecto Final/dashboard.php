@@ -78,6 +78,8 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    
 </head>
 
 <body class="darklayout">
@@ -241,32 +243,10 @@
                 <span data-toggle="collapse" data-target="#chat" class="chat-icon-link"><i class="fa fa-comments"></i></span>
             </div>
             <div id="chat" class="collapse chat-box-wrap shadow-reset animated zoomInLeft">
-                <div class="chat-main-list">
-                    <div class="chat-heading">
-                        <h2>Messanger</h2>
-                    </div>
-                    <div class="chat-content chat-scrollbar">
-                        <div class="author-chat">
-                            <h3>Monica <span class="chat-date">10:15 am</span></h3>
-                            <p>Hi, what you are doing and where are you gay?</p>
-                        </div>
-                        <div class="client-chat">
-                            <h3>Mamun <span class="chat-date">10:10 am</span></h3>
-                            <p>Now working in graphic design with coding and you?</p>
-                        </div>
-                        <div class="author-chat">
-                            <h3>Monica <span class="chat-date">10:05 am</span></h3>
-                            <p>Practice in programming</p>
-                        </div>
-                        <div class="client-chat">
-                            <h3>Mamun <span class="chat-date">10:02 am</span></h3>
-                            <p>That's good man! carry on...</p>
-                        </div>
-                    </div>
-                    <div class="chat-send">
-                        <input type="text" placeholder="Type..." />
-                        <span><button type="submit">Send</button></span>
-                    </div>
+                <div id="watson_div">
+        	
+                	<iframe src="https://assistant-chat-us-south.watsonplatform.net/web/public/8d3f2820-fd7e-410e-b1aa-7227987f8dc3" style="position:absolute; height: 100%; width: 100%; overflow:hidden;" id="watson_frame"></iframe>
+
                 </div>
             </div>
         </div>
@@ -362,6 +342,13 @@
     <!-- main JS
 		============================================ -->
     <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+    	var myIframe = document.getElementById('watson_frame');
+		myIframe.onload = function () {
+		    myIframe.contentWindow.scrollTo(100,100);
+		}
+    </script>
 </body>
 
 </html>

@@ -1581,8 +1581,8 @@ ul.comment-action-st li a{
 }
 .chat-box-wrap.collapse{
 	position: fixed;
-	height: 350px;
-    width: 260px;
+	height: 550px;
+    width: 300px;
 	background:#fff;
 	bottom: 70px;
     right: 50px;
@@ -1591,8 +1591,8 @@ ul.comment-action-st li a{
 }
 .chat-box-wrap.collapse.in{
 	position: fixed;
-	height: 335px;
-    width: 260px;
+	height: 610px;
+    width: 410px;
 	background:#fff;
 	bottom: 90px;
     right: 50px;
@@ -1600,7 +1600,7 @@ ul.comment-action-st li a{
 	transition:all .4s ease 0s;
 	z-index:999;
 	border:1px solid #303030;
-}
+}chat-content chat-scrollbar mCustomScrollbar _mCS_1
 .chat-heading h2{
 	font-size: 15px;
     font-weight: 400;
