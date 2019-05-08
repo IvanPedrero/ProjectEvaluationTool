@@ -8,12 +8,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login | Adminpro - Admin Template</title>
+    <title>Project Evaluation Tool</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
@@ -91,7 +91,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="breadcome-heading">
-                                    <h2>Welcome To NIU</h2>
+                                    <h2>Welcome To Project Evaluation Tool</h2>
                                 </div>
                             </div>
                             <!--<div class="col-lg-6">
@@ -1028,16 +1028,18 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="logo">
-                                                <a href="#"><img src="images/logo/logo.png" alt="" />
+                                                <a href="#"><img src="images/logo.png" alt="" width="15%;" />
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="login-title">
-                                                <h1>Login Form</h1>
+                                            <center>
+                                            	<div class="login-title">
+                                                <h1>Log In</h1>
                                             </div>
+                                            </center>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -1116,15 +1118,6 @@
     </div>
     <!-- Footer Start-->
     <div class="footer-copyright-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-copy-right">
-                        <p>Copyright &#169; 2019.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- Footer End-->
     <?php
